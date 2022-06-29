@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Moderadores</title>
+{% endblock %}
+
+{% block B1 %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'inicio' %}">INICIO</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="{% url 'moderadores' %}">Moderadores</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'crearModeradores' %}">Crear moderador</a></li>
+                <li class="nav-item"><a class="nav-link" href="">Buscar Moderador</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+{% endblock %}
+{% block B2 %}
+<section class="bg-light py-5">
+    <section class="bg-light py-5">
+        <div class="container px-6">
+            <div class="row gx-5justify-content-center">
+            <h1>Moderadores:</h1>
+                {% for mod in moderadores %}
+                <label class="list-group-item d-flex gap-3">
+                <span class="pt-1 form-checked-content">
+                    <strong>{{mod.nombre}}</strong>
+                    <small class="d-block text-muted">
+                        <tr>
+                            <p>{{mod.mail}}
+                            <br>{{mod.sector}}</p>
+                        </tr>
+                    </small>
+                </span>
+                </label>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</section>
+{% endblock %}
